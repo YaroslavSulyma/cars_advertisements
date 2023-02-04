@@ -1,0 +1,19 @@
+postgresql_base: &postgresql_base
+  adapter: postgresql
+  host: <%= ENV.fetch("DB_HOST", nil) %>
+  username: <%= ENV.fetch("DB_USER", 'postgres') %>
+  password: <%= ENV.fetch("DB_PWD", nil) %>
+  encoding: utf8
+  reconnect: true
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *postgresql_base
+  database: <%= ENV.fetch("DB_NAME", 'cars_advertisements_development') %>
+test:
+  <<: *postgresql_base
+  database: 'cars_advertisements_test'
+
+production:
+  <<: *postgresql_base
+  database: <%= ENV.fetch("DB_NAME", 'cars_advertisements_production') %>

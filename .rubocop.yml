@@ -1,0 +1,77 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-i18n
+  - rubocop-md
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1.2
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# localization ----------------------------------------------------------------
+
+I18n/GetText:
+  Enabled: false
+I18n/RailsI18n:
+  Enabled: true
+
+# Style -----------------------------------------------------------------------
+
+Style/Documentation:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+# Layout ----------------------------------------------------------------------
+
+Layout/LineLength:
+  Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    association:
+      - has_one
+      - has_many
+    attribute_macros:
+      - attr_accessor
+      - attr_reader
+      - attr_writer
+    macros:
+      - validates
+      - validate
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - association
+    - public_attribute_macros
+    - public_delegate
+    - macros
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_attribute_macros
+    - protected_methods
+    - private_attribute_macros
+    - private_delegate
+    - private_methods

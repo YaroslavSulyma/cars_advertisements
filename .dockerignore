@@ -1,0 +1,21 @@
+# ignore git for dockert
+.git
+.gitignore
+README.md
+
+# Ignore idea
+.idea
+
+# ignore Make
+bin/make
+Makefile
+
+# ignore docker
+docker
+docker-compose.yaml
+
+# ignore logs
+log
+
+# ignore dotenv
+.env
