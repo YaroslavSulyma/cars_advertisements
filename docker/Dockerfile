@@ -27,7 +27,7 @@ RUN gem install bundler && gem update --system
 
 # Copy gem files
 FROM rubyonrails as build_development
-ONBUILD COPY . .
+ONBUILD COPY Gemfile* ./
 
 # Install gems and run app
 FROM build_development

@@ -9,6 +9,8 @@ services:
     ports:
       - 127.0.0.1:${APP_PORT}:3000
     env_file: .env
+    volumes:
+      - .:/src
     tty: true
     stdin_open: true
     depends_on:
