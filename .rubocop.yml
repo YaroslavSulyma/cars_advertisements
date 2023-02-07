@@ -37,6 +37,10 @@ Style/RegexpLiteral:
 Layout/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
