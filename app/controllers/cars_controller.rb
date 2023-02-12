@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    render json: cars_collection
+    cars_collection
   end
 
   private
@@ -10,6 +10,6 @@ class CarsController < ApplicationController
   end
 
   def query_params
-    params.permit(:make, :model, :price_from, :price_to, :year_from, :year_to, :order_by, :direction)
+    params.permit(:page, :items, :make, :model, :price_from, :price_to, :year_from, :year_to, :order_by, :direction)
   end
 end
