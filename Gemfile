@@ -53,6 +53,7 @@ group :development do
   gem 'bundler-audit', '~> 0.9.1', require: false
   gem 'bundler-leak', '~> 0.3.0', require: false
   gem 'fasterer', '~> 0.10.0', require: false
+  gem 'lefthook', '~> 1.2.8', require: false
   gem 'rubocop', '~>1.44.1', require: false
   gem 'rubocop-i18n', '~> 3.0', require: false
   gem 'rubocop-md', '~> 1.1', require: false
