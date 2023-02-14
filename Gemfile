@@ -8,6 +8,7 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 gem 'bootsnap', '~> 1.16.0', require: false
 gem 'dotenv-rails', '~> 2.8.1'
 gem 'pagy', '~> 6.0.1'
+gem 'devise', '~> 4.8.1'
 gem 'pg', '~> 1.4.5'
 gem 'puma', '~> 6.0.2'
 gem 'slim-rails', '~> 3.5.1'
