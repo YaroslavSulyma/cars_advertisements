@@ -1,7 +1,7 @@
 class CarQuery < BaseQuery
   DEFAULT_ORDER_ATTRIBUTE = 'date_added'.freeze
 
-  def initialize(initial_scope = Car.all)
+  def initialize(initial_scope = Car)
     @initial_scope = initial_scope
   end
 
