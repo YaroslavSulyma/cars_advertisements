@@ -1,0 +1,27 @@
+= link_to 'back to home page', root_path
+h1 Search history
+table[style="width:100%"]
+  thead
+    tr
+      th №
+      th Make
+      th Model
+      th Year from
+      th Year to
+      th Price from
+      th Price to
+      th Request quantity
+  tbody
+    - @user_search_collection.records.each.with_index(1) do |search, index|
+      tr
+        td= index
+        td= search.make
+        td= search.model
+        td= search.year_from
+        td= search.year_to
+        td= search.price_from
+        td= search.price_to
+        td= search.requests_quantity
+div[style="display:flex; justify-content:space-between; align-items:center"]
+  h3 = "total count:#{@user_search_collection.pagy.count}"
+  == pagy_nav(@user_search_collection.pagy)
