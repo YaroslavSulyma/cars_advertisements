@@ -4,18 +4,18 @@ pre-commit:
     rubocop:
       tags: application style
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
-      run: docker-compose exec app rubocop {files}
+      #files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
+      run: docker-compose exec app rubocop
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
-      run: docker-compose exec app fasterer {files}
+      #files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
+      run: docker-compose exec app fasterer
 pre-push:
   parallel: true
   commands:
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
-      run: docker-compose exec app fasterer {files}
+      #files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
+      run: docker-compose exec app fasterer
