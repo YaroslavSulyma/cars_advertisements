@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   resources :cars, only: :index
   resources :searches, only: %i[index new create]
+  resources :helps, only: :index
 end
