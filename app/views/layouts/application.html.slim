@@ -7,5 +7,8 @@ html
       = csp_meta_tag
       = stylesheet_link_tag "application"
   body
+    = form_tag url_for(locale: params[:locale]), method: :get do
+      = select_tag 'locale', options_for_select([['English', :en], ['Українська', :uk]], I18n.locale),
+              onchange: "this.form.submit();"
     = render 'shared/flash'
     = yield
