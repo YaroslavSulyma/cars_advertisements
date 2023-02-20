@@ -1,0 +1,7 @@
+en:
+  pagy:
+    nav:
+      gap: "&hellip;"
+      prev: "Previous"
+      next: "Next"
+      truncate: "of %<count>s"

@@ -31,3 +31,71 @@
 
 en:
   hello: "Hello world"
+  app_title: "Cars advertisements"
+  errors:
+    invalid_range: "Invalid range values"
+    not_implemented: "%{class} has not implemented method '%{method}'"
+  helpers:
+    link:
+      back: "back to home page"
+  menu:
+    help_option: "Help"
+    help_description: "This page provides information about each menu option"
+    cars_list_option: "Cars list"
+    cars_list_description: "On the car list page, you can see a list of all the cars in the database. You can sort the list by various criteria, like: year, price, odometer, date_added"
+    search_option: "Search"
+    search_description: "The search page allows you to search for specific cars in the database. You can filter the search results by make, model, year from, year to, price from and price to"
+    user_searches_option: "My searches"
+    user_searches_description: "On the my searches page, you can see a list of you search history. This feature appears only for logged-in users"
+    sign_up_option: "Sign Up"
+    sign_up_description: "On this page you can create a new account to access additional features"
+    sign_in_option: "Sign In"
+    sign_in_description: "Log in to your account to access additional features"
+    sign_out_btn: "Sign Out"
+    sign_out_description: "This button only appears for logged-in users. To log out of your account and end your session, please do so"
+  helps:
+    index:
+      title: "Help"
+      option: "Option"
+      description: "Description"
+  cars:
+    index:
+      title: 'Cars list'
+      id: "ID"
+      make: "Make"
+      model: "Model"
+      price: "Price"
+      year: "Year"
+      description: "Description"
+      odometer: "Odometer"
+      added_at: "Added at"
+      total_count: "Total count: %{count}"
+      search:
+        title: "Query params:"
+        make: "Make: %{parameter}"
+        model: "Model: %{parameter}"
+        price_from: "Price from: %{parameter}"
+        price_to: "Price to: %{parameter}"
+        year_from: "Year from: %{parameter}"
+        year_to: "Year to: %{parameter}"
+  searches:
+    index:
+      title: "Search history"
+      make: "Make"
+      model: "Model"
+      price_from: "Price from"
+      price_to: "Price to"
+      year_from: "Year from"
+      year_to: "Year to"
+      request_quantity: "Request quantity"
+      total_count: "Total count: %{count}"
+    new:
+      title: "Car search"
+    form:
+      make: "Enter make"
+      model: "Enter model"
+      year_from: "Enter year from"
+      year_to: "Enter year to"
+      price_from: "Enter price from"
+      price_to: "Enter price to"
+      search_btn: "Search"

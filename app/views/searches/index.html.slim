@@ -1,16 +1,16 @@
-= link_to 'back to home page', root_path
+= link_to t('helpers.link.back'), root_path
 h1 Search history
 table[style="width:100%"]
   thead
     tr
       th №
-      th Make
-      th Model
-      th Year from
-      th Year to
-      th Price from
-      th Price to
-      th Request quantity
+      th = t('searches.index.make')
+      th = t('searches.index.model')
+      th = t('searches.index.year_from')
+      th = t('searches.index.year_to')
+      th = t('searches.index.price_from')
+      th = t('searches.index.price_to')
+      th = t('searches.index.request_quantity')
   tbody
     - @user_search_collection.records.each.with_index(1) do |search, index|
       tr
@@ -23,5 +23,5 @@ table[style="width:100%"]
         td= search.price_to
         td= search.requests_quantity
 div[style="display:flex; justify-content:space-between; align-items:center"]
-  h3 = "total count:#{@user_search_collection.pagy.count}"
+  h3 = t('searches.index.total_count', count: @user_search_collection.pagy.count)
   == pagy_nav(@user_search_collection.pagy)

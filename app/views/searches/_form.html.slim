@@ -1,8 +1,8 @@
 = form_with model: @search do |f|
-  = f.search_field :make, placeholder: 'Enter make'
-  = f.search_field :model, placeholder: 'Enter model'
-  = f.number_field :year_from, min: 0, placeholder: 'Enter year from'
-  = f.number_field :year_to, min: 0, placeholder: 'Enter year to'
-  = f.number_field :price_from, min: 0, placeholder: 'Enter price from'
-  = f.number_field :price_to, min: 0, placeholder: 'Enter price to'
-  = f.submit 'Search'
+  = f.search_field :make, placeholder: t('searches.form.make')
+  = f.search_field :model, placeholder: t('searches.form.model')
+  = f.number_field :year_from, min: 0, placeholder: t('searches.form.year_from')
+  = f.number_field :year_to, min: 0, placeholder: t('searches.form.year_to')
+  = f.number_field :price_from, min: 0, placeholder: t('searches.form.price_from')
+  = f.number_field :price_to, min: 0, placeholder: t('searches.form.price_to')
+  = f.submit t('searches.form.search_btn')

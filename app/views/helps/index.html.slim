@@ -1,10 +1,10 @@
-= link_to 'back to home page', root_path
-h1 Help
+= link_to t('helpers.link.back'), root_path
+h1 = t('helps.index.title')
 table
   thead
     tr
-      th Option
-      th Description
+      th = t('helps.index.option')
+      th = t('helps.index.description')
   tbody
     - @menu_options.each do |page, description|
       tr

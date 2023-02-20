@@ -1,11 +1,11 @@
-h1 Hello World!
+h1 = t('hello')
 ul
-  li = link_to 'Help', helps_path
-  li = link_to 'Cars list', cars_path
-  li = link_to 'Search', new_search_path
+  li = link_to t('menu.help_option'), helps_path
+  li = link_to t('menu.cars_list_option'), cars_path
+  li = link_to t('menu.search_option'), new_search_path
   - if user_signed_in?
-    li = link_to 'My searches', searches_path
-    li = button_to 'Sign Out', destroy_user_session_path, method: :delete
+    li = link_to t('menu.user_searches_option'), searches_path
+    li = button_to t('menu.sign_out_btn'), destroy_user_session_path, method: :delete
   - else
-    li = link_to 'Sign Up', new_user_registration_path
-    li = link_to 'Sign In', new_user_session_path
+    li = link_to t('menu.sign_up_option'), new_user_registration_path
+    li = link_to t('menu.sign_in_option'), new_user_session_path
