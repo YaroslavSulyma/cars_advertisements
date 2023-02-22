@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_04_223845) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_07_203739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "cars", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "make", null: false
+    t.string "model", null: false
+    t.integer "year", null: false
+    t.integer "odometer", null: false
+    t.integer "price", null: false
+    t.string "description", null: false
+    t.datetime "date_added", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
