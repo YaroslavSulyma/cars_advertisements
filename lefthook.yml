@@ -4,15 +4,15 @@ pre-commit:
     rubocop:
       tags: application style
       glob: '**/*.rb'
-      run: docker-compose exec app rubocop {files}
+      run: docker-compose exec app rubocop
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      run: docker-compose exec app fasterer {files}
+      run: docker-compose exec app fasterer
 pre-push:
   parallel: true
   commands:
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      run: docker-compose exec app fasterer {files}
+      run: docker-compose exec app fasterer
