@@ -4,12 +4,10 @@ pre-commit:
     rubocop:
       tags: application style
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
       run: docker-compose exec app rubocop {files}
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
       run: docker-compose exec app fasterer {files}
 pre-push:
   parallel: true
@@ -17,5 +15,4 @@ pre-push:
     optimization:
       tags: application performance
       glob: '**/*.rb'
-      files: git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs
       run: docker-compose exec app fasterer {files}
