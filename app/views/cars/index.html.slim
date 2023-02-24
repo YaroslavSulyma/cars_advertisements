@@ -1,0 +1,27 @@
+= link_to 'back to home page', root_path
+table[style="width:100%"]
+  h1 All cars
+  thead
+    tr
+      th №
+      th Make
+      th Model
+      th = sortable 'year'
+      th = sortable 'odometer'
+      th = sortable 'price'
+      th Description
+      th = sortable 'date_added'
+  tbody
+    - @cars_collection.records.each.with_index(1) do |car, index|
+      tr
+        td= index
+        td= car.make
+        td= car.model
+        td= car.year
+        td= car.odometer
+        td= car.price
+        td= car.description
+        td= car.date_added
+div[style="display:flex; justify-content:space-between; align-items:center"]
+  h3 = "total count:#{@cars_collection.pagy.count}"
+  == pagy_nav(@cars_collection.pagy)
