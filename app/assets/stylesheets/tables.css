@@ -8,3 +8,7 @@ table {
     background: #999999;
     border-spacing: 5px;
 }
+
+.description {
+    text-align: left;
+}
