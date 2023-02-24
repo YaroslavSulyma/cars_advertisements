@@ -7,8 +7,5 @@ html
       = csp_meta_tag
       = stylesheet_link_tag "application"
   body
-    p.notice
-      = notice
-    p.alert
-      = alert
+    = render 'shared/flash'
     = yield
