@@ -1,0 +1,10 @@
+table th, td {
+    background: #ffffff;
+    padding: 5px;
+    text-align: center;
+}
+
+table {
+    background: #999999;
+    border-spacing: 5px;
+}
