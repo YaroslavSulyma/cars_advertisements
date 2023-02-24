@@ -76,4 +76,7 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.raise = true
   end
+
+  config.action_mailer.default_url_options = { host: ENV.fetch('APP_HOST', 'localhost'),
+                                               port: ENV.fetch('APP_PORT', 3000) }
 end

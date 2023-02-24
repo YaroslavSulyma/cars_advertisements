@@ -6,6 +6,7 @@ ruby '3.1.2'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
 gem 'bootsnap', '~> 1.16.0', require: false
+gem 'devise', '~> 4.8.1'
 gem 'dotenv-rails', '~> 2.8.1'
 gem 'pagy', '~> 6.0.1'
 gem 'pg', '~> 1.4.5'
