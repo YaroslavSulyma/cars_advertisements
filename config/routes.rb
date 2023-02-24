@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'homes#index'
   resources :cars, only: :index
+  resources :searches, only: %i[index new create]
 end

@@ -45,6 +45,10 @@ Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
 
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
