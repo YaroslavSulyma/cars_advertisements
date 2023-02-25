@@ -215,10 +215,7 @@
 #
 # load the "de", "en" and "es" built-in locales:
 # (the first passed :locale will be used also as the default_locale)
-# Pagy::I18n.load({ locale: 'de' },
-#                 { locale: 'en' },
-#                 { locale: 'es' })
-#
+Pagy::I18n.load({ locale: 'uk' }, { locale: 'en' })
 # load the "en" built-in locale, a custom "es" locale,
 # and a totally custom locale complete with a custom :pluralize proc:
 # (the first passed :locale will be used also as the default_locale)
@@ -231,7 +228,7 @@
 # I18n extra: uses the standard i18n gem which is ~18x slower using ~10x more memory
 # than the default pagy internal i18n (see above)
 # See https://ddnexus.github.io/pagy/docs/extras/i18n
-# require 'pagy/extras/i18n'
+require 'pagy/extras/i18n'
 
 # Default i18n key
 # Pagy::DEFAULT[:i18n_key] = 'pagy.item_name'   # default

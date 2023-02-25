@@ -1,0 +1,8 @@
+span = t('.select_locale')
+ul
+  - I18n.available_locales.each.with_index(1) do |locale, index|
+    li
+      - if I18n.locale == locale
+        span = t(locale)
+      - else
+        = link_to t(locale), switch_locale_path(locale)

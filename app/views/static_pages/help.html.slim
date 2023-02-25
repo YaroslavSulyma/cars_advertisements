@@ -1,29 +1,29 @@
-= link_to 'back to home page', root_path
-h1 Help
+= link_to t('helpers.link.back'), root_path
+h1 = t('.title')
 table
   thead
     tr
-      th Option
-      th Description
+      th = t('.option')
+      th = t('.description')
   tbody
     tr
-      td Help
-      td.description This page provides information about each menu option
+      td = t('menu.help_option')
+      td.description = t('menu.help_description')
     tr
-      td Car List
-      td.description On the car list page, you can see a list of all the cars in the database. You can sort the list by various criteria, like: year, price, odometer, date_added
+      td = t('menu.cars_list_option')
+      td.description = t('menu.cars_list_description')
     tr
-      td Search
-      td.description The search page allows you to search for specific cars in the database. You can filter the search results by make, model, year_from, year_to, price_from and price_to
+      td = t('menu.search_option')
+      td.description = t('menu.search_description')
     tr
-      td My searches
-      td.description On the my searches page, you can see a list of you search history. This feature appears only for logged-in users
+      td = t('menu.user_searches_option')
+      td.description = t('menu.user_searches_description')
     tr
-      td Sign in
-      td.description Log in to your account to access additional features
+      td = t('menu.sign_in_option')
+      td.description = t('menu.sign_in_description')
     tr
-      td Sign up
-      td.description On this page you can create a new account to access additional features
+      td = t('menu.sign_up_option')
+      td.description = t('menu.sign_up_description')
     tr
-      td Sign out
-      td.description This button only appears for logged-in users. To log out of your account and end your session, please do so
+      td = t('menu.sign_out_btn')
+      td.description = t('menu.sign_out_description')

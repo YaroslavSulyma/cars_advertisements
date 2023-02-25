@@ -1,16 +1,16 @@
 = link_to t('helpers.link.back'), root_path
-h1 Search history
+h1 = t('.title')
 table[style="width:100%"]
   thead
     tr
       th №
-      th = t('searches.index.make')
-      th = t('searches.index.model')
-      th = t('searches.index.year_from')
-      th = t('searches.index.year_to')
-      th = t('searches.index.price_from')
-      th = t('searches.index.price_to')
-      th = t('searches.index.request_quantity')
+      th = t('.make')
+      th = t('.model')
+      th = t('.year_from')
+      th = t('.year_to')
+      th = t('.price_from')
+      th = t('.price_to')
+      th = t('.request_quantity')
   tbody
     - @user_search_collection.records.each.with_index(1) do |search, index|
       tr
@@ -23,5 +23,5 @@ table[style="width:100%"]
         td= search.price_to
         td= search.requests_quantity
 div[style="display:flex; justify-content:space-between; align-items:center"]
-  h3 = t('searches.index.total_count', count: @user_search_collection.pagy.count)
+  h3 = t('.total_count', count: @user_search_collection.pagy.count)
   == pagy_nav(@user_search_collection.pagy)
