@@ -1,7 +1,0 @@
-uk:
-  pagy:
-    nav:
-      gap: "&hellip;"
-      prev: "Попередня"
-      next: "Наступна"
-      truncate: "з %<count>s"
