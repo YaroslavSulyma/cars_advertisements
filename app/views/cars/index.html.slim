@@ -14,11 +14,11 @@ table[style="width:100%"]
       th №
       th = t('.make')
       th = t('.model')
-      th = sortable t('.year')
-      th = sortable t('.odometer')
-      th = sortable t('.price')
+      th = sortable 'year', t('.year')
+      th = sortable 'odometer', t('.odometer')
+      th = sortable 'price', t('.price')
       th = t('.description')
-      th = sortable t('.added_at')
+      th = sortable 'date_added', t('.added_at')
   tbody
     - @cars_collection.records.each.with_index(1) do |car, index|
       tr
