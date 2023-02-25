@@ -1,24 +1,24 @@
-= link_to 'back to home page', root_path
-- if %i[make model year_from year_to price_from price_to].all? {|k| params.key? k}
-  h3 Query params:
-  li = "Make: #{params[:make]}"
-  li = "Model: #{params[:model]}"
-  li = "Price from: #{params[:price_from]}"
-  li = "Price to: #{params[:price_to]}"
-  li = "Year from: #{params[:year_from]}"
-  li = "Year to: #{params[:year_to]}"
-h1 All cars
+= link_to t('helpers.link.back'), root_path
+- if %i[make model year_from year_to price_from price_to].all? { |k| params.key? k }
+  h3 = t('.search.title')
+  li = t('.search.make', parameter: params[:make])
+  li = t('.search.model', parameter: params[:model])
+  li = t('.search.price_from', parameter: params[:price_from])
+  li = t('.search.price_to', parameter: params[:price_to])
+  li = t('.search.year_from', parameter: params[:year_from])
+  li = t('.search.year_to', parameter: params[:year_to])
+h1 = t('cars.index.title')
 table[style="width:100%"]
   thead
     tr
       th №
-      th Make
-      th Model
-      th = sortable 'year'
-      th = sortable 'odometer'
-      th = sortable 'price'
-      th Description
-      th = sortable 'date_added'
+      th = t('.make')
+      th = t('.model')
+      th = sortable t('.year')
+      th = sortable t('.odometer')
+      th = sortable t('.price')
+      th = t('.description')
+      th = sortable t('.added_at')
   tbody
     - @cars_collection.records.each.with_index(1) do |car, index|
       tr
@@ -31,5 +31,5 @@ table[style="width:100%"]
         td= car.description
         td= car.date_added
 div[style="display:flex; justify-content:space-between; align-items:center"]
-  h3 = "total count:#{@cars_collection.pagy.count}"
-  == pagy_nav(@cars_collection.pagy)
+  h3 = t('.total_count', count: @cars_collection.pagy.count)
+  == pagy_nav(@cars_collection.pagy, i18n_key: 'pagy.nav')

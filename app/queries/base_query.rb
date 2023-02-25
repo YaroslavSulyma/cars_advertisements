@@ -6,7 +6,7 @@ class BaseQuery
   PaginatedCollection = Struct.new(:pagy, :records)
 
   def call
-    raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
+    raise NotImplementedError, t('errors.not_implemented', class: self.class, method: __method__)
   end
 
   private

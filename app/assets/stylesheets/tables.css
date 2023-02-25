@@ -12,3 +12,7 @@ table {
 .description {
     text-align: left;
 }
+
+.dropdown {
+    padding: 2px 1.5rem;
+}
