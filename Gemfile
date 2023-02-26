@@ -38,7 +38,8 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner-active_record', '~> 2.1.0'
+  gem 'database_cleaner', '~> 2.0.1'
+  gem 'database_cleaner-active_record', '~> 2.0.0'
   gem 'rspec-rails', '~> 6.0.1'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', '~> 0.21.2', require: false

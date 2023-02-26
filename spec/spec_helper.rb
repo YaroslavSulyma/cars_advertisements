@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'database_cleaner'
 SimpleCov.start
 
 RSpec.configure do |config|
@@ -8,9 +9,7 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+    DatabaseCleaner.cleaning { example.run }
   end
 
   # rspec-expectations config goes here. You can use an alternate
