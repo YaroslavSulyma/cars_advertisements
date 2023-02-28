@@ -21,7 +21,7 @@ class SearchesController < ApplicationController
 
   def create_params
     params.require(:search).permit(:make, :model, :year_from, :year_to, :price_from, :price_to)
-      .with_defaults(user_id: current_user.id)
+      .with_defaults(user_id: current_user&.id)
   end
 
   def query_params

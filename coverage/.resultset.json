@@ -19,6 +19,24 @@
           null
         ]
       },
+      "/src/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
       "/src/app/helpers/application_helper.rb": {
         "lines": [
           1,
@@ -37,6 +55,80 @@
           1,
           0,
           null,
+          null
+        ]
+      },
+      "/src/app/controllers/cars_controller.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/src/app/controllers/searches_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/src/app/controllers/static_pages_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/src/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           null
         ]
       },
@@ -61,268 +153,157 @@
           null
         ]
       },
-      "/src/app/controllers/application_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/controllers/cars_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/controllers/searches_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/controllers/static_pages_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/src/app/queries/base_query.rb": {
         "lines": [
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
           0,
           null,
-          0,
           null,
-          0,
-          0,
-          0,
+          1,
           null,
-          0,
+          1,
+          12,
           null,
-          0,
-          0,
+          12,
           null,
-          0,
-          0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/queries/car_query.rb": {
-        "lines": [
-          0,
-          0,
+          1,
+          15,
+          15,
           null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/queries/filterable.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/src/app/queries/search_query.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          null
+        ]
       },
       "/src/app/queries/searchable.rb": {
         "lines": [
-          0,
-          0,
+          1,
+          1,
           null,
-          0,
-          0,
+          1,
+          12,
           null,
-          0,
-          0,
-          0,
+          11,
+          11,
           null,
-          0,
-          0,
           null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          22,
+          null,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/src/app/queries/filterable.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          24,
+          null,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/src/app/queries/car_query.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          12,
+          null,
+          null,
+          1,
+          12,
+          12,
+          null,
+          12,
+          12,
+          12,
+          12,
+          12,
+          null,
+          null,
+          1,
+          null,
+          1,
+          12,
+          null,
+          null
+        ]
+      },
+      "/src/app/queries/search_query.rb": {
+        "lines": [
+          1,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          3,
+          null,
+          null
+        ]
       },
       "/src/app/validations/range_validator.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          24,
           null,
-          0,
-          0,
-          0,
           null,
-          0,
-          0,
-          0,
+          1,
+          24,
           null,
-          0,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
+          24,
           null,
-          0,
-          0,
-          0,
           null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          24,
+          null,
+          null,
+          1,
+          50,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1677448375
+    "timestamp": 1677622592
   }
 }
