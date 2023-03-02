@@ -1,8 +1,6 @@
 class CarQuery < BaseQuery
   DEFAULT_ORDER_ATTRIBUTE = 'date_added'.freeze
 
-  attr_reader :initial_scope
-
   def initialize(initial_scope = Car)
     @initial_scope = initial_scope
   end
@@ -13,7 +11,7 @@ class CarQuery < BaseQuery
 
     scoped = search(initial_scope, params)
     scoped = apply_filters(scoped, params)
-    scoped = ordered(scoped, order_attribute(params), params[:direction] || 'ASC')
+    scoped = ordered(scoped, order_attribute(params), params[:direction] || DEFAULT_DIRECTION)
     paginate(scoped, page, items)
   end
 
