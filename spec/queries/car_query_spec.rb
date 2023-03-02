@@ -1,6 +1,7 @@
 RSpec.describe CarQuery do
   describe '#call' do
     subject(:query) { described_class.new }
+    subject(:result) { query.call(params).records }
 
     let!(:car1) { create(:car, odometer: 200_000, year: 2010, price: 10_000, date_added: 1.day.ago) }
     let!(:car2) { create(:car, odometer: 75_000, year: 2015, price: 15_000, date_added: 2.days.ago) }
@@ -8,76 +9,82 @@ RSpec.describe CarQuery do
     let!(:car4) { create(:car, odometer: 20_000, year: 2020, price: 25_000, date_added: 4.days.ago) }
 
     context 'with search params' do
-      it 'returns cars that match search params' do
-        params = { make: car1.make, model: car1.model }
-        result = query.call(params).records
+      let(:params) { { make: car1.make, model: car1.model } }
 
-        expect(result).to contain_exactly(car1)
+      it 'returns cars that match search params' do
+        expect(result).to eq([car1])
       end
     end
 
     context 'with filter params' do
-      it 'returns cars that match filter params' do
-        params = { year_from: 2015, year_to: 2018, price_from: 15_000, price_to: 20_000 }
-        result = query.call(params).records
+      let(:params) { { year_from: 2015, year_to: 2018, price_from: 15_000, price_to: 20_000 } }
 
-        expect(result).to contain_exactly(car2, car3)
+      it 'returns cars that match filter params' do
+        expect(result).to match_array([car2, car3])
       end
     end
 
     context 'ordering' do
-      it 'returns cars ordered by the price asc' do
-        params = { order_by: 'price', direction: 'asc' }
-        result = query.call(params).records
+      let(:params) { {} }
 
-        expect(result).to eq([car1, car2, car3, car4].sort_by(&:price))
+      context 'if price asc' do
+        let(:params) { { order_by: 'price', direction: 'asc' } }
+
+        it 'returns cars ordered by the price asc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:price))
+        end
       end
 
-      it 'returns cars ordered by the price desc' do
-        params = { order_by: 'price', direction: 'desc' }
-        result = query.call(params).records
+      context 'if price desc' do
+        let(:params) { { order_by: 'price', direction: 'desc' } }
 
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:price).reverse)
+        it 'returns cars ordered by the price desc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:price).reverse)
+        end
       end
 
-      it 'returns cars ordered by the year asc' do
-        params = { order_by: 'year', direction: 'asc' }
-        result = query.call(params).records
+      context 'if year asc' do
+        let(:params) { { order_by: 'year', direction: 'asc' } }
 
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:year))
+        it 'returns cars ordered by the year asc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:year))
+        end
       end
 
-      it 'returns cars ordered by the year desc' do
-        params = { order_by: 'year', direction: 'desc' }
-        result = query.call(params).records
+      context 'if year desc' do
+        let(:params) { { order_by: 'year', direction: 'desc' } }
 
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:year).reverse)
+        it 'returns cars ordered by the year desc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:year).reverse)
+        end
       end
 
-      it 'returns cars ordered by the date_added asc' do
-        params = { order_by: 'date_added', direction: 'asc' }
-        result = query.call(params).records
+      context 'if date_added asc' do
+        let(:params) { { order_by: 'date_added', direction: 'asc' } }
 
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:date_added))
+        it 'returns cars ordered by the date_added asc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added))
+        end
       end
 
-      it 'returns cars ordered by the date_added desc' do
-        params = { order_by: 'date_added', direction: 'desc' }
-        result = query.call(params).records
+      context 'if date_added desc' do
+        let(:params) { { order_by: 'date_added', direction: 'desc' } }
 
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:date_added).reverse)
+        it 'returns cars ordered by the date_added desc' do
+          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added).reverse)
+        end
       end
 
       it 'orders by the default order attribute if no order param is passed' do
-        params = {}
-        result = query.call(params).records
-
-        expect(result.records).to eq([car1, car2, car3, car4].sort_by(&:date_added))
+        expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added))
       end
     end
 
     context 'with pagination params' do
-      it_behaves_like 'paginatable', 'Car', 'date_added', 'asc'
+      it_behaves_like 'paginatable',
+                      'Car',
+                      described_class::DEFAULT_ORDER_ATTRIBUTE,
+                      described_class::DEFAULT_DIRECTION
     end
   end
 end
