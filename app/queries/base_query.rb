@@ -3,6 +3,8 @@ class BaseQuery
   include Searchable
   include Filterable
 
+  DEFAULT_DIRECTION = 'ASC'.freeze
+
   PaginatedCollection = Struct.new(:pagy, :records)
 
   def call
@@ -10,6 +12,8 @@ class BaseQuery
   end
 
   private
+
+  attr_reader :initial_scope
 
   def ordered(scope, attribute, direction = 'ASC')
     return scope unless attribute && direction
