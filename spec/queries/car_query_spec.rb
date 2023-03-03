@@ -1,12 +1,11 @@
 RSpec.describe CarQuery do
   describe '#call' do
-    subject(:query) { described_class.new }
-    subject(:result) { query.call(params).records }
+    subject(:result) { described_class.new.call(params).records }
 
-    let!(:car1) { create(:car, odometer: 200_000, year: 2010, price: 10_000, date_added: 1.day.ago) }
-    let!(:car2) { create(:car, odometer: 75_000, year: 2015, price: 15_000, date_added: 2.days.ago) }
-    let!(:car3) { create(:car, odometer: 50_000, year: 2018, price: 20_000, date_added: 3.days.ago) }
-    let!(:car4) { create(:car, odometer: 20_000, year: 2020, price: 25_000, date_added: 4.days.ago) }
+    let!(:car1) { create(:car, odometer: 200_000, year: 2010, price: 10_000, created_at: 1.day.ago) }
+    let!(:car2) { create(:car, odometer: 75_000, year: 2015, price: 15_000, created_at: 2.days.ago) }
+    let!(:car3) { create(:car, odometer: 50_000, year: 2018, price: 20_000, created_at: 3.days.ago) }
+    let!(:car4) { create(:car, odometer: 20_000, year: 2020, price: 25_000, created_at: 4.days.ago) }
 
     context 'with search params' do
       let(:params) { { make: car1.make, model: car1.model } }
@@ -20,7 +19,7 @@ RSpec.describe CarQuery do
       let(:params) { { year_from: 2015, year_to: 2018, price_from: 15_000, price_to: 20_000 } }
 
       it 'returns cars that match filter params' do
-        expect(result).to match_array([car2, car3])
+        expect(result).to contain_exactly(car2, car3)
       end
     end
 
@@ -31,7 +30,7 @@ RSpec.describe CarQuery do
         let(:params) { { order_by: 'price', direction: 'asc' } }
 
         it 'returns cars ordered by the price asc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:price))
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:price))
         end
       end
 
@@ -39,7 +38,7 @@ RSpec.describe CarQuery do
         let(:params) { { order_by: 'price', direction: 'desc' } }
 
         it 'returns cars ordered by the price desc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:price).reverse)
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:price).reverse)
         end
       end
 
@@ -47,7 +46,7 @@ RSpec.describe CarQuery do
         let(:params) { { order_by: 'year', direction: 'asc' } }
 
         it 'returns cars ordered by the year asc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:year))
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:year))
         end
       end
 
@@ -55,28 +54,28 @@ RSpec.describe CarQuery do
         let(:params) { { order_by: 'year', direction: 'desc' } }
 
         it 'returns cars ordered by the year desc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:year).reverse)
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:year).reverse)
         end
       end
 
-      context 'if date_added asc' do
-        let(:params) { { order_by: 'date_added', direction: 'asc' } }
+      context 'if created_at asc' do
+        let(:params) { { order_by: 'created_at', direction: 'asc' } }
 
-        it 'returns cars ordered by the date_added asc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added))
+        it 'returns cars ordered by the created_at asc' do
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:created_at))
         end
       end
 
-      context 'if date_added desc' do
-        let(:params) { { order_by: 'date_added', direction: 'desc' } }
+      context 'if created_at desc' do
+        let(:params) { { order_by: 'created_at', direction: 'desc' } }
 
-        it 'returns cars ordered by the date_added desc' do
-          expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added).reverse)
+        it 'returns cars ordered by the created_at desc' do
+          expect(result).to eq([car1, car2, car3, car4].sort_by(&:created_at).reverse)
         end
       end
 
       it 'orders by the default order attribute if no order param is passed' do
-        expect(result).to match_array([car1, car2, car3, car4].sort_by(&:date_added))
+        expect(result).to eq([car1, car2, car3, car4].sort_by(&:created_at))
       end
     end
 

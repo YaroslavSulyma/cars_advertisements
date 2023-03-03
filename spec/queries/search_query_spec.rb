@@ -1,7 +1,6 @@
 RSpec.describe SearchQuery do
   describe '#call' do
-    subject(:query) { described_class.new }
-    subject(:result) { query.call(params).records }
+    subject(:result) { described_class.new.call(params).records }
 
     let(:search1) { create(:search, updated_at: 1.day.ago) }
     let(:search2) { create(:search, updated_at: 2.days.ago) }
@@ -10,7 +9,7 @@ RSpec.describe SearchQuery do
       let(:params) { {} }
 
       it 'orders by the default search attribute if no order param is passed' do
-        expect(result).to match_array([search1, search2].sort_by(&:updated_at))
+        expect(result).to eq([search1, search2].sort_by(&:updated_at))
       end
     end
 
