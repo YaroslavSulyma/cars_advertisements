@@ -18,14 +18,12 @@ namespace :cars do
 end
 
 def car
-  make = Faker::Vehicle.make
   {
-    make:,
-    model: Faker::Vehicle.model(make_of_model: make),
-    year: Faker::Vehicle.year,
-    odometer: Faker::Vehicle.kilometrage,
-    price: Faker::Commerce.price(range: 10_000..100_000).to_i,
-    description: Faker::Vehicle.drive_type,
-    date_added: Faker::Date.between(from: '2010-09-23', to: '2022-09-25')
+    make: FFaker::Vehicle.make,
+    model: FFaker::Vehicle.model,
+    year: FFaker::Vehicle.year,
+    odometer: FFaker::Random.rand(999_999),
+    price: FFaker::Random.rand(999_999),
+    description: FFaker::Lorem.phrase
   }
 end

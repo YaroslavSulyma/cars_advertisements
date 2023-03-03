@@ -18,7 +18,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
-  gem 'faker', '~> 3.1.1'
+  gem 'ffaker', '~> 2.20.0'
   gem 'pry', '~> 0.14.2'
 end
 

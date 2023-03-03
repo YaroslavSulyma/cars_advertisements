@@ -1,12 +1,12 @@
 FactoryBot.define do
   factory :search do
-    make { Faker::Vehicle.make }
-    model { Faker::Vehicle.model }
-    year_from { Faker::Number.between(from: Car::MIN_YEAR, to: Date.current.year) }
-    year_to { Faker::Number.between(from: year_from, to: Date.current.year) }
-    price_from { Faker::Commerce.price.to_i }
-    price_to { Faker::Commerce.price(range: price_from..100_000).to_i }
-    requests_quantity { Faker::Number.between(from: 1, to: 10) }
+    make { FFaker::Vehicle.make }
+    model { FFaker::Vehicle.model }
+    year_from { FFaker::Time.between(Date.current - 10.years, Date.current - 5).year }
+    year_to { FFaker::Time.between(Date.current - 5, Date.current).year }
+    price_from { FFaker::Random.rand(1..7000) }
+    price_to { FFaker::Random.rand(7000..999_999) }
+    requests_quantity { FFaker::Random.rand(10) }
 
     trait :with_user do
       user { association :user }
