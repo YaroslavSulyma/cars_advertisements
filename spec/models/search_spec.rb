@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Search, type: :model do
   describe 'columns' do
     it { is_expected.to have_db_column(:id).of_type(:uuid).with_options(null: false) }
@@ -20,8 +18,13 @@ RSpec.describe Search, type: :model do
   end
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:requests_quantity) }
-    it { is_expected.to validate_numericality_of(:requests_quantity).is_greater_than_or_equal_to(1) }
+    context 'presence' do
+      it { is_expected.to validate_presence_of(:requests_quantity) }
+    end
+
+    context 'numericality' do
+      it { is_expected.to validate_numericality_of(:requests_quantity).is_greater_than_or_equal_to(1) }
+    end
   end
 
   describe 'associations' do
