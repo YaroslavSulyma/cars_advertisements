@@ -9,7 +9,7 @@ FactoryBot.define do
     requests_quantity { FFaker::Random.rand(10) }
 
     trait :with_user do
-      user { association :user }
+      association :user
     end
   end
 end
