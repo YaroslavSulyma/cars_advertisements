@@ -8,8 +8,8 @@ module Filterable
   end
 
   def range(range_values)
-    from = range_values[:from].empty? ? -Float::INFINITY : range_values[:from].to_i
-    to = range_values[:to].empty? ? Float::INFINITY : range_values[:to].to_i
+    from = range_values[:from].present? ? range_values[:from].to_i : -Float::INFINITY
+    to = range_values[:to].present? ? range_values[:to].to_i : Float::INFINITY
     (from..to)
   end
 end

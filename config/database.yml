@@ -10,6 +10,7 @@ postgresql_base: &postgresql_base
 development:
   <<: *postgresql_base
   database: <%= ENV.fetch("DB_NAME", 'cars_advertisements_development') %>
+
 test:
   <<: *postgresql_base
   database: 'cars_advertisements_test'
