@@ -19,7 +19,7 @@ RSpec.describe CarQuery do
       let(:params) { { year_from: 2015, year_to: 2018, price_from: 15_000, price_to: 20_000 } }
 
       it 'returns cars that match filter params' do
-        expect(result).to contain_exactly(car2, car3)
+        expect(result).to eq([car2, car3].sort_by(&:created_at))
       end
     end
 
