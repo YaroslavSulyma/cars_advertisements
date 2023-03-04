@@ -3,13 +3,17 @@ class BaseQuery
   include Searchable
   include Filterable
 
+  DEFAULT_DIRECTION = 'ASC'.freeze
+
   PaginatedCollection = Struct.new(:pagy, :records)
 
   def call
-    raise NotImplementedError, t('errors.not_implemented', class: self.class, method: __method__)
+    raise NotImplementedError, I18n.t('errors.not_implemented', class: self.class, method: __method__)
   end
 
   private
+
+  attr_reader :initial_scope
 
   def ordered(scope, attribute, direction = 'ASC')
     return scope unless attribute && direction
