@@ -18,7 +18,7 @@ table[style="width:100%"]
       th = sortable 'odometer', t('.odometer')
       th = sortable 'price', t('.price')
       th = t('.description')
-      th = sortable 'date_added', t('.added_at')
+      th = sortable 'created_at', t('.added_at')
   tbody
     - @cars_collection.records.each.with_index(1) do |car, index|
       tr
@@ -29,7 +29,7 @@ table[style="width:100%"]
         td= car.odometer
         td= car.price
         td= car.description
-        td= car.date_added
+        td= car.created_at
 div[style="display:flex; justify-content:space-between; align-items:center"]
   h3 = t('.total_count', count: @cars_collection.pagy.count)
   == pagy_nav(@cars_collection.pagy, i18n_key: 'pagy.nav')

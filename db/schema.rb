@@ -22,9 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_193448) do
     t.integer "odometer", null: false
     t.integer "price", null: false
     t.string "description", null: false
-    t.datetime "date_added", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["make"], name: "index_cars_on_make"
+    t.index ["model"], name: "index_cars_on_model"
   end
 
   create_table "searches", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

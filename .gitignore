@@ -38,3 +38,6 @@
 
 # docker-compose files
 docker-compose.*
+
+# simplecov report
+/coverage/
