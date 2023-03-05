@@ -36,7 +36,7 @@ RSpec.describe SearchesController, type: :controller do
     end
 
     context 'when user is not authenticated' do
-      before { get :index }
+      before { get :index, params: { locale: I18n.locale } }
 
       it 'return correct status' do
         expect(response).to have_http_status(:found)
@@ -77,17 +77,36 @@ RSpec.describe SearchesController, type: :controller do
     end
 
     context 'when search already exists' do
+      let(:existing_search) { create(:search, requests_quantity: 1) }
+      let(:existing_search_params) do
+        {
+          search: {
+            make: existing_search.make,
+            model: existing_search.model,
+            year_from: existing_search.year_from,
+            year_to: existing_search.year_to,
+            price_from: existing_search.price_from,
+            price_to: existing_search.price_to
+          }
+        }
+      end
+
       before do
-        sign_in user_with_search_history
-        post :create, params: search_params
+        post :create, params: existing_search_params
       end
 
       it 'redirects to cars_path with search params' do
-        expect(response).to redirect_to(cars_path(search_params[:search]))
+        expect(response).to redirect_to(cars_path(existing_search_params[:search]))
       end
 
-      it 'does not create a new search'
-      it 'increments requests_quantity for existing search'
+      it 'does not create a new search' do
+        expect(Search.where(existing_search_params[:search]).count).to eq(1)
+      end
+
+      it 'increments requests_quantity for existing search' do
+        existing_search.reload
+        expect(existing_search.requests_quantity).to eq(2)
+      end
     end
   end
 end
