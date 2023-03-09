@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
-    user_search_collection
+    @user_search_collection = SearchQuery.new(user_searches).call(query_params)
   end
 
   def new
@@ -26,10 +26,6 @@ class SearchesController < ApplicationController
 
   def query_params
     params.permit(:page, :items)
-  end
-
-  def user_search_collection
-    @user_search_collection ||= SearchQuery.new(user_searches).call(query_params)
   end
 
   def user_searches
