@@ -9,6 +9,9 @@ pre-commit:
       tags: application performance
       glob: '**/*.rb'
       run: docker-compose exec app fasterer
+    testing:
+      tags: tests
+      run: docker-compose exec app rspec
 pre-push:
   parallel: true
   commands:
@@ -16,3 +19,6 @@ pre-push:
       tags: application performance
       glob: '**/*.rb'
       run: docker-compose exec app fasterer
+    testing:
+      tags: tests
+      run: docker-compose exec app rspec
